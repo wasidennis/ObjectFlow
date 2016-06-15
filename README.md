@@ -8,31 +8,31 @@ Yi-Hsuan Tsai, Ming-Hsuan Yang and Michael J. Black <br />
 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016.
 
 ## Overview
-* This is the authors' MATLAB implementation described in the above paper. Please cite our paper if you use our code and data for your research.
+* This is the authors' MATLAB implementation described in the above paper. Please cite our paper if you use our code and model for your research.
 
 * This code has been tested on Ubuntu 14.04 and MATLAB 2013b.
 
 ## Installation
 * Download and unzip the code.
 
-* Install the included caffe branch as instructed at http://caffe.berkeleyvision.org/installation.html
+* Install the attached caffe branch, as instructed at http://caffe.berkeleyvision.org/installation.html.
 
-* Install included libraries in the **External** folder if needed (pre-compiled codes are included).
+* Install included libraries in the **External** folder if needed (pre-compiled codes are already included).
 
-* Download the CNN model at
+* Download the CNN model for feature extraction at .
 
 ## Usage
-* Put your video data in the **Videos** folder (see examples in this folder)
+* Put your video data in the **Videos** folder (see examples in this folder).
 
-* Set directories and parameters in **setup_all.m** (suggest to use defaults)
+* Set directories and parameters in **setup_all.m** (suggest to use defaults).
 
-* Run **demo_objectFlow.m** and change some settings based on the data (see comments in the code)
+* Run **demo_objectFlow.m** and change settings if needed based on your video data (see the script for further details).
 
 ## Note
-* This package only contains the code of object segment tracking (without re-estimating optical flow),
-and the performacne is a bit worse than the one reported in the paper.
+* This package only contains the implementation of object segment tracking without re-estimating optical flow and the performacne is a bit worse than the one reported in the paper.
 
-* Currently we use the ground truth of the first frame and propagate to following frames.
-If you would like to use other initializations, please replace the ground truth data.
+* Currently we use the ground truth of the first frame and propagate to following frames. If you would like to use other initializations, please replace the ground truth data.
 
-* The current code for generating optical flow is slow, so you can replace it with any other optical flow method to speed up the process.
+## Hint
+
+* The current implementation for generating optical flow is slow, so you can replace it with other optical flow methods to speed up the process.
