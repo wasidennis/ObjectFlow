@@ -1,10 +1,13 @@
 # ObjectFlow
 Project webpage: https://sites.google.com/site/yihsuantsai/research/cvpr16-segmentation
+
 Contact: Yi-Hsuan Tsai (ytsai2 at ucmerced dot edu)
 
 ## Paper
 Object Segmentation via Object Flow
+
 Yi-Hsuan Tsai, Ming-Hsuan Yang and Michael J. Black
+
 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016.
 
 ## Overview
@@ -19,12 +22,13 @@ IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016.
 
 * Install included libraries in the **External** folder if needed (pre-compiled codes are included).
 
-* Download the CNN model:
-  - RealismCNN models: http://www.eecs.berkeley.edu/~junyanz/projects/realism/realismCNN_models.zip    
+* Download the CNN model at
 
 ## Usage
 1) put your video data in the **Videos** folder (see examples in this folder)
+
 2) set directories and parameters in **setup_all.m** (suggest to use defaults)
+
 3) run **demo_objectFlow.m** and change some settings based on the data (see comments in the code)
 
 ## Note
