@@ -24,9 +24,9 @@ IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016.
 ## Usage
 * Put your video data in the **Videos** folder (see examples in this folder).
 
-* Set directories and parameters in **setup_all.m** (suggest to use defaults).
+* Set directories and parameters in `setup_all.m` (suggest to use defaults).
 
-* Run **demo_objectFlow.m** and change settings if needed based on your video data (see the script for further details).
+* Run `demo_objectFlow.m` and change settings if needed based on your video data (see the script for further details).
 
 ## Note
 * This package only contains the implementation of object segment tracking without re-estimating optical flow and the performacne is a bit worse than the one reported in the paper.
