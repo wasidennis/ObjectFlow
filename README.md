@@ -31,7 +31,7 @@ IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016.
 ## Note
 * This package only contains the implementation of object segment tracking without re-estimating optical flow and the performacne is a bit worse than the one reported in the paper.
 
-* Currently we use the ground truth of the first frame and propagate to following frames. If you would like to use other initializations, please replace the ground truth data.
+* Currently we use the ground truth of the first frame as the initialization and propagate to following frames. If you would like to use other initializations, please replace the ground truth data.
 
 ## Hint
 
