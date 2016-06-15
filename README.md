@@ -1,13 +1,10 @@
 # ObjectFlow
-Project webpage: https://sites.google.com/site/yihsuantsai/research/cvpr16-segmentation
-
+Project webpage: https://sites.google.com/site/yihsuantsai/research/cvpr16-segmentation <br />
 Contact: Yi-Hsuan Tsai (ytsai2 at ucmerced dot edu)
 
 ## Paper
-Object Segmentation via Object Flow
-
-Yi-Hsuan Tsai, Ming-Hsuan Yang and Michael J. Black
-
+Object Segmentation via Object Flow <br />
+Yi-Hsuan Tsai, Ming-Hsuan Yang and Michael J. Black <br />
 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016.
 
 ## Overview
@@ -25,11 +22,11 @@ IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016.
 * Download the CNN model at
 
 ## Usage
-1) put your video data in the **Videos** folder (see examples in this folder)
+* Put your video data in the **Videos** folder (see examples in this folder)
 
-2) set directories and parameters in **setup_all.m** (suggest to use defaults)
+* Set directories and parameters in **setup_all.m** (suggest to use defaults)
 
-3) run **demo_objectFlow.m** and change some settings based on the data (see comments in the code)
+* Run **demo_objectFlow.m** and change some settings based on the data (see comments in the code)
 
 ## Note
 * This package only contains the code of object segment tracking (without re-estimating optical flow),
