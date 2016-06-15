@@ -14,8 +14,8 @@ dataInfo.videoName = 'aeroplane_01/';
 dataInfo.gtName = 'gt/';
 dataInfo.videoFormat = 'jpg';
 dataInfo.gtFormat = 'jpg';
-dataInfo.objId = 1; % choose which object according to the format of ground truths
-dataInfo.gtAll = 0; % select '0' if the ground truths are not availabel for all the frames (but at least require the first one)
+dataInfo.objId = 1; % choose to track which object according to the format of ground truths (can track multiple objects at the same time)
+dataInfo.gtAll = 0; % select '0' if the ground truths are not available for all the frames (but at least require the first one)
 
 %% pre-process data
 dataInfo = preprocess_video(dataInfo, dirInfo, para);
