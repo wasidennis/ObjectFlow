@@ -19,7 +19,7 @@ IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016.
 
 * Install included libraries in the **External** folder if needed (pre-compiled codes are already included).
 
-* Download the CNN model for feature extraction at .
+* Download the CNN model for feature extraction at https://dl.dropboxusercontent.com/u/73240677/CVPR16/pascal_segmentation.zip. Then you should unzip the model folder under the **caffe-cedn-dev/examples** folder.
 
 ## Usage
 * Put your video data in the **Videos** folder (see examples in this folder).
