@@ -1,5 +1,5 @@
-% demo for video object segmentation in the paper: "Video Segmentation via Object Flow,
-% Y.-H. Tsai, M.-H. Yang and M. J. Black, CVPR 2016"
+% demo for video object segmentation in the paper: "Video Segmentation via Object Flow",
+% Y.-H. Tsai, M.-H. Yang and M. J. Black, CVPR 2016.
 clear all;
 
 %% setups
@@ -10,7 +10,7 @@ para.saveResult = 0; % save binary masks as mat files
 %% video data information
 % change below for different videos
 dataInfo.videoPath = 'Videos/';
-dataInfo.videoName = 'aeroplane_01/';
+dataInfo.videoName = 'aeroplane_001/';
 dataInfo.gtName = 'gt/';
 dataInfo.videoFormat = 'jpg';
 dataInfo.gtFormat = 'jpg';

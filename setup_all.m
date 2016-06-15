@@ -35,14 +35,14 @@ para.K = 5;
 para.layers = [3, 6, 10, 14, 18];
 para.scales = [1, 2, 4, 8, 16];
 
-% weight for superpixels
+% weights for superpixels
 para.colorSupervoxelWeight = 1;
 para.locSupervoxelWeight = 1;
 para.spatialSupervoxelWeight = 2;
 
 para.unarySupervoxelWeight = 15;
 
-% weight for pixels
+% weights for pixels
 para.CNNPixelWeight = 3;
 para.colorPixelWeight = 1;
 para.locPixelWeight = 2;
@@ -50,6 +50,6 @@ para.spatialPixelWeight = 3;
 para.temporalPixelWeight = 0.2;
 para.unaryPixelWeight = 1;
 
-% weight between superpixels and pixels
+% weights between superpixels and pixels
 para.supervoxel2pixelWeight = 5;
 para.pixel2supervoxelWeight = 5;

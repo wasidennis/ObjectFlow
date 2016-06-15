@@ -3,7 +3,7 @@ ff = onlineModel.ff;
 mask = onlineModel.mask;
 
 if ~isempty(dataInfo.gtMask{ff+1})
-    %% load ground truth
+    % load ground truth
     trimap = dataInfo.gtMask{ff+1};
     
     onlineModel.union = onlineModel.union + sum(logical(trimap(:)) | logical(mask(:)));
