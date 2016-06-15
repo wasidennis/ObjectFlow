@@ -14,21 +14,21 @@ dataInfo.videoName = 'aeroplane_01/';
 dataInfo.gtName = 'gt/';
 dataInfo.videoFormat = 'jpg';
 dataInfo.gtFormat = 'jpg';
-dataInfo.objId = 1; % choose which object according to the id of ground truth
-dataInfo.gtAll = 0; % select '0' if the groundtruths are not availabel for all the frames (but at least require the first one)
+dataInfo.objId = 1; % choose which object according to the format of ground truths
+dataInfo.gtAll = 0; % select '0' if the ground truths are not availabel for all the frames (but at least require the first one)
 
 %% pre-process data
 dataInfo = preprocess_video(dataInfo, dirInfo, para);
 inputPath = dataInfo.inputPath;
 totalFrame = dataInfo.totalFrame;
 
-%% load groundtruths
+%% load ground truths
 gtPath = [inputPath  dataInfo.gtName sprintf('%02d/', dataInfo.objId) '*.' dataInfo.gtFormat];
 gtMask = cell(totalFrame,1);
 list = dir(gtPath);
 
 if dataInfo.gtAll == 1
-    % for complete groundtruths (e.g., segTrack v2 dataset)
+    % for complete ground truths (e.g., segTrack v2 dataset)
     for ff = 1:totalFrame
         tmp = imread([inputPath dataInfo.gtName sprintf('%02d/', dataInfo.objId) list(ff).name]);
         
@@ -37,7 +37,7 @@ if dataInfo.gtAll == 1
         gtMask{ff} = (tmp>128);
     end
 else
-    % for incomplete groundtruths (e.g., Youtube-Objects dataset)
+    % for incomplete ground truths (e.g., Youtube-Objects dataset)
     for ff = 1:length(list)
         tmp = imread([inputPath dataInfo.gtName sprintf('%02d/', dataInfo.objId) list(ff).name]);
         
