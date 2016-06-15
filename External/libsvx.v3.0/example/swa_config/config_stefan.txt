@@ -1,0 +1,6 @@
+InputSequence=../svxbench/dataset/Chen_png/stefan/%05d.png
+Frames=76-76
+NumOfLayers=12
+MaxStCubeSize=100
+VizLayer=7-12
+VizFileName=./chen_swa/stefan

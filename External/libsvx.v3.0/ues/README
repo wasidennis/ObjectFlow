@@ -1,0 +1,52 @@
+Flattening Supervoxel Hierarchies by the Uniform Entropy Slice
+
+<--- A Module within LIBSVX V3+ --->
+
+Created on: Nov. 2013
+	Author: Chenliang Xu (chenlian@buffalo.edu)
+
+Copyright (C) 2011, 2012, 2013.  Code is licensed under the GPL. 
+See LICENSE file. No liability is assumed by its use.
+
+---------------------------------------------------------------------------
+
+If you find the code useful, please cite our paper:
+
+C. Xu, S. Whitt and J. J. Corso. Flattening Supervoxel Hierarchies by the Uniform Entropy Slice. In Proceedings of IEEE International Conference on Computer Vision, 2013.
+
+---------------------------------------------------------------------------
+
+DIRECTORY STRUCTURE:
+
+ues/
+    /README     ---- This file.
+    /ues.m      ---- The main function of UES.
+    /settings.m ---- Set paths and parameters of prerequisites.
+    /demo.m     ---- A demo file of running UES Motion-ness.
+    /boxers.m   ---- Example of UES on video "boxers".
+    /danceduo.m ---- Example of UES on video "danceduo".
+    /dancers.m  ---- Example of UES on video "dancers".
+    /treeify.m  ---- A tool to treeify hierarchical segmentation.
+    /code       ---- Folder contains support functions.	
+    /examples   ---- Folder contains three two-actor example videos.
+    /external   ---- Put external feature criteria softwares.
+
+---------------------------------------------------------------------------
+
+PREREQUISITES:
+
+The UES needs a solver and a feature criterion to drive the algorithm. We used the following softwares at the time we developing the algorithm. Here we provide the urls referring to the external softwares. Please see settings.m for the external software path settings. Before you run UES, please make sure that they are correctly installed and you can run the examples provided within each external software.
+
+1. IBM ILOG CPLEX Optimization Studio V12.4+.
+http://www-03.ibm.com/software/products/en/ibmilogcpleoptistud/
+
+2. Ce Liu's Optical Flow Aug 1, 2011.
+http://people.csail.mit.edu/celiu/OpticalFlow/
+
+3. Objectness V1.5.
+http://groups.inf.ed.ac.uk/calvin/objectness/
+
+4. PFF DPM V4.01.
+http://www.cs.berkeley.edu/~rbg/latent/index.html
+
+

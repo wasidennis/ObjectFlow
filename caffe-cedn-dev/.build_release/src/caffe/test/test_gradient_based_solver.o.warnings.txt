@@ -1,0 +1,12 @@
+src/caffe/test/test_gradient_based_solver.cpp: In member function ‘virtual void caffe::SGDSolverTest_TestLeastSquaresUpdate_Test<gtest_TypeParam_>::TestBody()’:
+src/caffe/test/test_gradient_based_solver.cpp:326:37: warning: typedef ‘Dtype’ locally defined but not used [-Wunused-local-typedefs]
+   typedef typename TypeParam::Dtype Dtype;
+                                     ^
+src/caffe/test/test_gradient_based_solver.cpp: In member function ‘virtual void caffe::AdaGradSolverTest_TestAdaGradLeastSquaresUpdate_Test<gtest_TypeParam_>::TestBody()’:
+src/caffe/test/test_gradient_based_solver.cpp:393:37: warning: typedef ‘Dtype’ locally defined but not used [-Wunused-local-typedefs]
+   typedef typename TypeParam::Dtype Dtype;
+                                     ^
+src/caffe/test/test_gradient_based_solver.cpp: In member function ‘virtual void caffe::NesterovSolverTest_TestNesterovLeastSquaresUpdate_Test<gtest_TypeParam_>::TestBody()’:
+src/caffe/test/test_gradient_based_solver.cpp:438:37: warning: typedef ‘Dtype’ locally defined but not used [-Wunused-local-typedefs]
+   typedef typename TypeParam::Dtype Dtype;
+                                     ^

@@ -1,0 +1,14 @@
+Nystrom Normalized Cut for Supervoxel Segmentation
+Author: Chenliang Xu and Jason J. Corso
+Email: chenlian@buffalo.edu, jcorso@buffalo.edu
+Date: 2011-11-21
+Revision: 0
+
+If using this code, please cite:
+C. Xu and J. J. Corso. Evaluation of super-voxel methods for early video processing. In Proceedings of IEEE Conference on Computer Vision and Pattern Recognition, 2012.
+
+This code implements the method from the following paper.  You hence should cite this one as well...
+C. Fowlkes, S. Belongie, F. Chung, and J. Malik. Spectral grouping using the Nystrom method. IEEE Transactions on Pattern Analysis and Machine Intelligence, 26(2), 2004.
+
+Usage:
+	See Nystrom_video.m

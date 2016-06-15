@@ -1,0 +1,91 @@
+LIBSVX: Super-Voxel Library and Benchmark
+Authors: Chenliang Xu and Jason J. Corso
+Email: chenlian@buffalo.edu, jcorso@buffalo.edu
+Date: 2013-11-25
+Version: 3.0
+
+See: http://www.cse.buffalo.edu/~jcorso/r/supervoxels/
+
+This library includes implementations of 1) various supervoxel (low-level video segmentation) methods and video segmentation methods, 2) a benchmark for fairly comparing results, and 3) a method for flattening supervoxel hierarchies by the uniform entropy slice (UES). The evaluation is published in CVPR 2012 and the various segmentation methods are published in various places over the last decade or so, including our recent work at ECCV 2012. The UES work is published in ICCV 2013.
+
+---------------------------------------------------------------------------
+UPDATE LOG
+
+WHAT'S NEW IN VERSION 3?
+- We include the method in our ICCV 2013 paper for flattening supervoxel hierarchies by the uniform entropy slice (UES). UES flattens a supervoxel hierarchy into a single segmentation such that it overcomes the limitations of trivially selecting an arbitrary level. It selects supervoxels in the hierarchy that balance the relative level of information in the final segmentation based on various post hoc feature criteria, such as motion, object-ness or human-ness.
+- Fix bugs in gbh, gbh_stream and swa.
+
+WHAT'S NEW IN VERSION 2?
+- LIBSVX can now handle videos of arbitrary length.  The gbh_stream module, which implements our ECCV 2012 paper on streaming hierarchical video segmentation, generalizes the hierarchical graph-based methods for longer videos using ideas from data streams.
+
+---------------------------------------------------------------------------
+If using this code (the segmentation methods, the benchmark, and UES flattening), please cite:
+
+[1] C. Xu, S. Whitt and J. J. Corso. Flattening Supervoxel Hierarchies by the Uniform Entropy Slice. In Proceedings of IEEE International Conference on Computer Vision, 2013.
+
+[2] C. Xu, C. Xiong and J. J. Corso. Streaming Hierarchical Video Segmentation. In Proceedings of European Conference on Computer Vision, 2012.
+
+[3] C. Xu and J. J. Corso. Evaluation of super-voxel methods for early video processing. In Proceedings of IEEE Conference on Computer Vision and Pattern Recognition, 2012.
+
+
+If also publishing results including Chen's data set, please cite:
+
+[4] A. Y. C. Chen and J. J. Corso. Propagating Multi-class Pixel Labels throughout Video Frames. In Proceedings of 2010 Western New York Image Processing Workshop (WNYIPW), 2010.
+
+The CVPR 2012 paper uses three data sets (Chen, GaTech and SegTrack), but the Chen data set is the only one from our group.  Hence it is the only one we can include in this release.  The other two data sets are available from their original authors (e.g., http://cpl.cc.gatech.edu/projects/SegTrack/SegTrack_201102.zip).
+
+In addition, each method has its own original paper behind it, from the respective authors. You probably want to cite the one you've used as well.
+
+---------------------------------------------------------------------------
+
+DIRECTORY STRUCTURE OF THE LIBRARY 
+
+libsvx/
+    /LICENSE        ---- The license file for libsvx
+    /README         ---- this file 
+    /tutorial.pdf   ---- A pdf version of the tutorial on using libsvx
+    /example        ---- material for the tutorial example
+    /gbh_stream     ---- streaming hierarchical video segmentation (StreamGB and StreamGBH)
+    /gbh            ---- graph-based (GB) and graph-based hierarchical (GBH)
+    /nystrom_ncut   ---- Nystrom normalized cut
+    /svxbench       ---- the benchmark code 
+    /swa            ---- segmentation by weighted aggregation (SWA)
+	/ues            ---- flattening supervoxel hierarchies by the unifrom entropy slice
+
+Each subdirectory has its own separate documentation (as they are independently operable).
+
+---------------------------------------------------------------------------
+
+GETTING STARTED
+
+The code in gbh_stream, gbh and swa need to be compiled (go into these two directories and see their README files for more information).
+
+The code in nystrom_ncut and svxbench are Matlab with no mex'd code and will run directly in the Matlab shell.
+
+The code in ues is Matlab code and needs a set of external software packages.
+
+We recommend reading the tutorial.pdf (or http://www.cse.buffalo.edu/~jcorso/r/supervoxels/tutorial.html) for more details on getting started with the library.
+
+---------------------------------------------------------------------------
+
+MORE DETAILS / NOTES / PLATFORMS
+
+1. This code has been built and tested on the Linux platform (Ubuntu 12.04) with Matlab 2011b with gcc version 4.4 and on Mac OS X 10.6. We will strive to support you in making it work on your system. Email with any questions, issues.
+
+2. We have run our benchmark at 240x160 pixel resolution. 
+
+3. All of the supervoxel methods require that a video is first computed into a sequence of image frames (stored as ppm) with an initial index of '00001'. To do so, we recommend using the freely available (and awesome) tool called ffmpeg (http://ffmpeg.org/). The command-line to transcode a video named foo.mpg into frames #####.ppm in a directory named "output" is: ffmpeg -i foo.mpg -s 240x160 ./output/%05d.ppm
+
+
+---------------------------------------------------------------------------
+
+ACKNOWLEDGMENTS
+
+We thank the following contributors for their valuable suggestions and bug reports.
+
+Tyler Ganter (SUNY at Buffalo)
+Nicolas Bonneel (Harvard University)
+Damien Teney (University of Bath, UK)
+Du Tran (Dartmouth College)
+Xuan Cheng
+Pablo Arbelaez (University of California, Berkeley)

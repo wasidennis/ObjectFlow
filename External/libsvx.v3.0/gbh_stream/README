@@ -1,0 +1,88 @@
+Graph-Based Streaming Hierarchical Video Segmentation
+
+<--- A Module within LIBSVX V2+ ---->
+
+Created on: Feb 16, 2012
+    Author: Chenliang Xu and Jason Corso
+            (chenlian@buffalo.edu, jcorso@buffalo.edu)
+
+Copyright (C) 2011, 2012.  Code is licensed under the GPL. 
+See LICENSE file. No liability is assumed by its use.
+
+
+If you use the code, please cite our papers that discuss this work:
+[1] C. Xu, C. Xiong and J. J. Corso.  Streaming Hierarchical Video 
+Segmentation.  In Proceedings of European Conference on Computer Vision, 2012.
+[2] C. Xu and J. J. Corso. Evaluation of super-voxel methods for early video 
+processing. In Proceedings of IEEE Conference on Computer Vision and Pattern 
+Recognition, 2012.
+
+
+An implementation of the graph-based supervoxel methods. This 
+code implements the general streaming algorithm in our 
+ECCV 2012 paper. It implements a superset of
+	1. Streaming GBH
+	2. GBH
+	3. Streaming GB
+	4. GB
+The variant is selected based on the parameters settings given on 
+the command line.
+
+Example use:   
+	1) Type "make" to compile the program
+	2) Run "./gbh_stream c c_reg min sigma range hie_num out_col input output"
+
+	The first four parameters are grouping parameters per the algorithm. 
+	The next two parameters govern the variant of the method. The final 
+	two parameters are the input and output paths. The output path will 
+	be created and overwritten if it exists already.
+
+	Parameters in order are:
+		c -- Governs the merging threshold of two nodes in the minimum 
+			spanning tree during the oversegmentation stage. Bigger c 
+			means larger segments.
+
+		c_reg -- Like c, it governs the merging of two nodes, but this 
+			is in the hierarchical levels whereas c is at the pixel 
+			level nodes.
+
+		min -- Enforced minimum segment size (for a whole supervoxel).
+        
+        ** These first three are sensitive to the length of one
+		subsequence (or clip). If the range (number of frames in one 
+		subsequence) goes up, you may set larger values for these three 
+		parameters.
+
+		sigma -- The variance of the Gaussian smoothing. 
+
+		range -- The number of frames to include in one subsequence (or 
+			clip). range = 1 means each frame is handled separately. 
+			range = NUMBER_OF_FRAMES means the whole video is handled 
+			at once (beware of memory need). range = k is the typical 
+			way to run the streaming method; our paper shows the larger 
+			the range, the "better" the results.
+
+      	hie_num -- The number of desired levels in the hierarchy + 1. 
+        	If hie_num = 0, no hierarchy is created.
+
+		out_col -- Determines the format of the output ppm frames.
+			If out_col = 0, each segment is a random color.
+			If out_col = 1, segments are incrementally changed colors.
+			Random is visually easier and segment colors propogate
+			through hierarchies.  Incremental is robust and ensures
+			uniqueness in segment coloring per hierarchy.
+
+	You need to use ffmpeg first to turn the video into ppm frames 
+	starting from "00001.ppm".
+		E.g.,  ffmpeg -i video.mpg input/%05d.ppm
+
+ A Note On the Parameters.
+    Choosing the proper parameters is important in generating sensible 
+	results. Here, we provide some more guidelines on suitable ranges 
+	for the parameters.
+	
+	A typical setting for a 320x240 video k = 10 streaming:
+	./gbh_stream 5 200 100 0.5 10 20 0 input/path output/path
+
+	You are welcome to contact the authors if you have came out a 
+	good parameter setting.

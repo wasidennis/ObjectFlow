@@ -1,0 +1,140 @@
+Super-Voxel Evaluation Benchmark
+Authors: Chenliang Xu and Jason J. Corso
+Email: chenlian@buffalo.edu, jcorso@buffalo.edu
+Date: 2011-11-21
+Revision: 0
+
+---------------------------------------------------------------------------
+If using this code (the segmentation methods and/or the benchmark), please cite:
+
+C. Xu and J. J. Corso. Evaluation of super-voxel methods for early video 
+processing. In Proceedings of IEEE Conference on Computer Vision and Pattern 
+Recognition, 2012.
+
+If also publishing results including Chen's data set, please cite:
+
+A. Y. C. Chen and J. J. Corso. Propagating Multi-class Pixel Labels throughout 
+Video Frames. In Proceedings of 2010 Western New York Image Processing Workshop 
+(WNYIPW), 2010.
+
+The CVPR 2012 paper uses three data sets (Chen, GaTech and SegTrack), but the Chen 
+data set is the only one from our group.  Hence it is the only one we can 
+include in this release.  The other two data sets are available from their 
+original authors (e.g., 
+http://cpl.cc.gatech.edu/projects/SegTrack/SegTrack_201102.zip).
+
+
+---------------------------------------------------------------------------
+DIRECTORY STRUCTURE OF THE BENCHMARK CODE
+
+svxbench/
+        /README                   ---- this file
+        /EVALUATION.m             ---- the main benchmark driver script
+        /code                     ---- the m-files for the benchmark
+        /Data-set                 ---- the original video frames 
+        /Ground-truth             ---- the ground-truth video frames
+        /XuCorso_CVPR2012_mat     ---- the full set of benchmark results from 
+                                     - our paper
+
+---------------------------------------------------------------------------
+USAGE
+
+1. DATA SETUP
+
+We include Chen's complete data set 
+(http://www.cse.buffalo.edu/~jcorso/r/labelprop.html).
+
+For SegTrack data set (http://cpl.cc.gatech.edu/projects/SegTrack/) and Gatech 
+data set (http://www.cc.gatech.edu/cpl/projects/videosegmentation/), please 
+download the data sets from the above links and set them up exactly same as 
+Chen's data set (if you want to include the comparative results on them). Note, 
+all the frame files are in ppm format and numbering start from "00001.ppm".  
+Please put them in the paths "./Data-set/All_Data_100_240X160_SegTrack/" and 
+"./Data-set/All_Data_100_240X160_Gatech/" according to the video names.
+
+If you are using SegTrack and Gatech data set, please also consider to cite 
+their papers. Alternatively, you can use Chen's data set solely. For the detail 
+of the three data sets, please see our CVPR 2012 paper.
+
+
+
+2. PREPARING YOUR RESULTS FOR USE WITH THE BENCHMARK
+
+The supervoxel outputs for your method need to be stored as ppm/png files with each 
+supervoxel colored as a unique RGB value.  See our example output in the 
+auxiliary download of our CVPR 2012 results that includes the full outputs of 
+our evaluation (http://www.cse.buffalo.edu/~jcorso/extdelivery/libsvx_example_full.tar.bz).
+
+The benchmark code assume that you are able to provide supervoxel outputs on a 
+video for a range of supervoxels-per-video, which we have set to x_min = 200 
+and x_max = 900.  The variation over this range is used to generate the curves 
+found in our paper.  You should sample results for at least every hundred 
+(roughly) supervoxels (i.e., 200, 300, 400, ...).  These numbers can be rough; 
+we use a linear interpolation scheme to compute the values for the curve (the 
+more samples between x_min and x_max, the better the curve).  Note, you need to 
+provide some sample at or below x_min, and at or above x_max.
+
+The benchmark code assumes that your results are organized in a certain 
+directory structure.  We explain it now for Chen's data set; the other two data 
+sets are analogous.
+
+Let the root path of your results for Chen's data set be ROOT.
+
+The 8 videos in the root path.
+  ROOT/bus
+  ROOT/container
+  ROOT/garden
+  ROOT/ice
+  ROOT/paris
+  ROOT/salesman
+  ROOT/soccer
+  ROOT/stefan
+
+The results for one video are put in different folders with the supervoxel 
+number as the name in this example. 
+  ROOT/bus/150
+  ROOT/bus/227
+  ...
+  ROOT/bus/905
+
+The segmentation results of one video with one particular supervoxel number
+  ROOT/bus/150/00001.ppm
+  ...
+  ROOT/bus/150/00085.ppm
+
+
+
+
+3. RUN THE BENCHMARK SOFTWARE
+
+To run the benchmark software properly, you need to config and run "EVALUATION.m". 
+
+You are able to run only one of the three data sets at a time.  The full set of 
+possible metrics are computed based on which of the three data sets you have 
+selected.
+
+If you set the x_max to be higher than 900, the processing will take more time.  
+Be patient.  In our results, the GBH and SWA can produce outputs with thousands 
+of supervoxels per video; these took a few hours to run through the benchmark.  
+You can speed up the processing by open "matlabpool".
+
+You can check the number of supervoxel by using Function 
+"./code/read_video_supervoxels.m".
+number of supervoxel = size(sv_list, 1)
+
+Sample Results:  The full set of benchmark results from our CVPR 2012 paper are 
+included at "XuCorso_CVPR2012_mat"
+
+Testing:  The full set of segmentation results from our CVPR 2012 paper, which were used to generate the scores in "XuCorso_CVPR2012_mat" are available upon request (because it is a large 1.1GB file and we cannot support widespread download of it).  Email us and we'll point you to it.
+
+
+-----------------------------------------------------------------------------------
+EXTENSIONS/DISCUSSIONS
+
+The benchmark algorithms can be adapted to different video resolutions and data 
+sets.  Contact us for more information.
+
+Also note the 2D metrics are included in this software but were not included in 
+the CVPR 2012 paper.
+
+

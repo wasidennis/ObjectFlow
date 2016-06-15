@@ -1,0 +1,112 @@
+Segmentation by Weighted Aggregation (SWA)
+
+Created over 2007-2012 by members of Dr. Corso's Research Group. 
+   Authors (some may have been missed):  Jason J. Corso, Albert Y. C. Chen, 
+             Ifeoma Nwogu, and Chenliang Xu.
+
+An implementation of the segmentation by weighted aggregation method.
+A subset of VPML general graphs library.
+
+    Input:      a sequence of 2D frames (which forms a spatiotemporal volume)
+    Builds:   a soft adaptive hierarchy, as in SWA
+    Outputs:  slices (different layers) of the hierarchy as images, and
+                a montage of all the slices, patched as a single image.
+
+===========================================================================
+
+CITATIONS (use your discretion but cite at least the first two):
+
+The 3D SWA implementation was originally written for the following paper:
+J. J. Corso, E. Sharon, S. Dube, S. El-Saden, U. Sinha, and A. Yuille. 
+Efficient multilevel brain tumor segmentation with integrated bayesian model 
+classification. IEEE Transactions on Medical Imaging, 27(5):629–640, 2008.
+
+The original SWA algorithm was published by our colleagues, Sharon et al.:
+E. Sharon, M. Galun, D. Sharon, R. Basri, and A. Brandt. Hierarchy and 
+adaptivity in segmenting visual scenes. Nature, 442(7104):810–813, 2006.
+
+The video-based SWA version was updated for the WMVC 2011 paper and the CVPR 
+2012 benchmark:
+A. Y. C. Chen and J. J. Corso. Temporally consistent multi-class video-object 
+segmentation with the video graph-shifts algorithm. In Proceedings of the 2011 
+IEEE Workshop on Motion and Video Computing, 2011.
+
+C. Xu and J. J. Corso. Evaluation of super-voxel methods for early video 
+processing. In Proceedings of IEEE Conference on Computer Vision and Pattern 
+Recognition, 2012.
+
+
+
+============================================================================
+
+FILE ORGANIZATION:
+
+CORE files briefly described as follows:
+    swa.cpp: main file of algorithm.
+    graphs.h/cpp: contains the hierarchy, layer, and node classes.
+    imagegraphs.h/cpp: contains the graph-coarseners class that builds a
+                SWA hierarchy from a spatiotempoal volume, plus several 
+                templated global functions that are used during the 
+                hierarchy-building progress.
+    settings.h: where constant global variables should be defined.
+
+UTILITY files written for and used by this driver program:
+    config.h/cpp: loads config file, parses parameters to strings & numbers.
+                Furthermore, the "Index" class is capable to handle
+                non-sequential listing of numbers
+                e.g. "1/3-5/8-9/13" = {1,3,4,5,8,9,13}
+    vizhierarchy.h/cpp: classes for visualizing the hierarchy at given layers.
+    VPML Image Library: images.h/cpp imagefuncs.h matrix.h
+
+EXTERNAL Dependency:
+    libz.a: file compression
+    libpng.a: read/write png images
+
+=============================================================================
+
+EXAMPLE USE (see tutorial with libsvx as well):
+    0) In the makefile, set the variables (to locate external libraries)
+         On linux, you can simply install the standard libpng and libz devel
+          packages, which should install them to locations already in your path.
+         On Ubuntu, for example, the package is libpng++-dev
+    1) Type "make" to compile "swa"
+    2) Run "./swa config.txt"
+
+Parameters to be specified in config.txt:
+    InputSequence:  Specifies the input sequence naming format.
+                    e.g. when the frames of the sequence are names as
+                    "./input/00001.png", "./input/00002.png", etc., then
+                    specify: "./input/%05d.png".
+    Frames:         Frame number to be processed; use '/' to separate
+                    numbers, and use '-' to specify a continuous
+                    sequence of numbers, e.g. (1/4/9-13/15 == taking 1,
+                    4, 9, 10, 11, 12, 13, 15). See examples below and in 
+                    tutorial.
+    MaxStCubeSize:  The number of frames the spatiotemporal cube.
+                    (s.t.cube) that spans back from frame N.
+    NumOfLayers:    Number of layers in the SWA hierarchy.
+    VizLayer:       Uses the same format as in "Frames" to specify the
+                    layers of the hierarchy to be visualized.
+    VizFileName:    The directory path (absolute or relative path) 
+                    for storing the visualization results,
+                    e.g.,
+                    VizFilename = "./output/"
+                    would store images (suppose for the 36th frame of 
+                    hierarchy level 1) as
+                    "./output/01/00036.png"
+
+Parameter Usage Examples:
+  1. To segment a spatiotemporal volume made up of continuous frames from 
+     baseball000001.png to baseball000100.png, all at once, specify:
+     InputSequence=baseball%06d.png
+     Frames=100-100
+     MaxStCubeSize=100
+
+  2. Continuing on example 1, to segment large sequences by processing 
+     smaller spatiotemporal volumes one by one, e.g., having 1000 total 
+     frames and want to segment 100 at a time due to memory constraints:
+     InputSequence=baseball%06d.png
+     Frames=100/200/300/400/500/600/700/800/900/1000
+     MaxStCubeSize=100
+     
+  

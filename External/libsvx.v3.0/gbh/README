@@ -1,0 +1,74 @@
+Graph-Based Hierarchical Video Segmentation
+
+Created on: Nov 21, 2011
+    Author: Chenliang Xu and Jason Corso
+            (chenlian@buffalo.edu, jcorso@buffalo.edu)
+
+Copyright (C) 2011, 2012.  Code is licensed under the GPL. 
+See LICENSE file. No liability is assumed by its use.
+
+An implementation of the graph-based supervoxel methods.
+It implements a superset of
+	1. GBH
+	2. GB
+The variant is selected based on the parameters settings given on 
+the command line.
+
+Citation:
+
+If you use the code, please cite our paper:
+[1] C. Xu and J. J. Corso. Evaluation of super-voxel methods for early video 
+processing. In Proceedings of IEEE Conference on Computer Vision and Pattern 
+Recognition, 2012.
+
+Please also consider to cite following two papers:
+[2] P. F. Felzenszwalb and D. P. Huttenlocher. Efficient Graph-
+Based Image Segmentation. IJCV, 59(2):167–181, 2004.
+[3] M. Grundmann, V. Kwatra, M. Han, and I. Essa. Efficient hi-
+erarchical graph-based video segmentation. In CVPR, 2010.
+
+
+Example use:   
+	1) Type "make" to compile the program
+	2) Run "./gbh c c_reg min sigma hie_num input output"
+
+	Parameters in order are:
+		c -- Governs the merging threshold of two nodes in the minimum 
+			spanning tree during the oversegmentation stage. Bigger c 
+			means larger segments.
+
+		c_reg -- Like c, it governs the merging of two nodes, but this 
+			is in the hierarchical levels whereas c is at the pixel 
+			level nodes.
+
+		min -- Enforced minimum segment size (for a whole supervoxel).
+        
+        ** These first three are sensitive to the length of a video.
+		If the video length (number of frames) goes up, you may set 
+		larger values for these three parameters.
+
+		sigma -- The variance of the Gaussian smoothing. 
+
+      	hie_num -- The number of desired levels in the hierarchy + 1. 
+        	If hie_num = 0, no hierarchy is created, which is GB.
+
+	The first four parameters are grouping parameters per the algorithm. 
+	The next parameter governs the variant of the method. The final 
+	two parameters are the input and output paths. The output path will 
+	be created and overwritten if it exists already.
+
+	You need to use ffmpeg first to turn the video into ppm frames 
+	starting from "00001.ppm".
+		E.g.,  ffmpeg -i video.mpg input/%05d.ppm
+
+ A Note On the Parameters.
+    Choosing the right parameters is important in generating sensible 
+	results. Here, we provide some more guidelines on suitable ranges 
+	for the parameters.
+	
+	A typical setting for a 320x240 video (10 frames):
+	./gbh 5 200 100 0.5 20 0 input/path output/path
+
+	You are welcome to contact the authors if you have came out a good 
+	parameter setting.
+

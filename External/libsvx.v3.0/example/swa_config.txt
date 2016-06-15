@@ -1,0 +1,6 @@
+InputSequence=../example/frames_png/%05d.png
+Frames=30-30
+NumOfLayers=12
+MaxStCubeSize=50
+VizLayer=5-12
+VizFileName=../example/output_swa
