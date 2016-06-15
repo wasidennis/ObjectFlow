@@ -1,4 +1,4 @@
-% demo for video object segmentation in the paper of "Video Segmentation via Object Flow,
+% demo for video object segmentation in the paper: "Video Segmentation via Object Flow,
 % Y.-H. Tsai, M.-H. Yang and M. J. Black, CVPR 2016"
 clear all;
 
