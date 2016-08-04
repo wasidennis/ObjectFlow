@@ -3,7 +3,7 @@ Project webpage: https://sites.google.com/site/yihsuantsai/research/cvpr16-segme
 Contact: Yi-Hsuan Tsai (ytsai2 at ucmerced dot edu)
 
 ## Paper
-Object Segmentation via Object Flow <br />
+Video Segmentation via Object Flow <br />
 Yi-Hsuan Tsai, Ming-Hsuan Yang and Michael J. Black <br />
 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016.
 
