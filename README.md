@@ -36,3 +36,8 @@ IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016.
 ## Hint
 
 * The current implementation for generating optical flow is slow, so you can replace it with other optical flow methods to speed up the process.
+
+## Log
+
+* 05/2016: code released
+* 09/2016: correct evaluation method
