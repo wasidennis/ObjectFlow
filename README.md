@@ -39,5 +39,5 @@ IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016.
 
 ## Log
 
-* 05/2016: code released
+* 06/2016: code released
 * 09/2016: correct evaluation method
