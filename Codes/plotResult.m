@@ -6,8 +6,7 @@ if ~isempty(dataInfo.gtMask{ff+1})
     % load ground truth
     trimap = dataInfo.gtMask{ff+1};
     
-    onlineModel.union = onlineModel.union + sum(logical(trimap(:)) | logical(mask(:)));
-    onlineModel.inter = onlineModel.inter + sum(logical(trimap(:)) & logical(mask(:)));
+    onlineModel.iou = onlineModel.iou + sum(logical(trimap(:)) & logical(mask(:)))/sum(logical(trimap(:)) | logical(mask(:)));
 end
 
 %% visualize results

@@ -54,8 +54,7 @@ fprintf('Build initial models...\n');
 onlineModel = build_initial_model(dataInfo, dirInfo, para);
 
 %% track segments from frame t to t+1
-onlineModel.union = 0;
-onlineModel.inter = 0;
+onlineModel.iou = 0;
 fprintf('Start tracking segments...\n');
 for ff = 1:totalFrame-1    
     %% build the online model
@@ -76,5 +75,5 @@ for ff = 1:totalFrame-1
     fprintf('Finish segmentating frame %d/%d in %f seconds.\n', ff, totalFrame-1, toc);
     onlineModel = plotResult(onlineModel, dataInfo, dirInfo, para);
 end
-fprintf('finish segmetnting video: %s obj %d, average IOU: %f.\n\n',dataInfo.videoName(1:end-1), dataInfo.objId, onlineModel.inter/onlineModel.union);
+fprintf('finish segmetnting video: %s obj %d, average IOU: %f.\n\n',dataInfo.videoName(1:end-1), dataInfo.objId, onlineModel.iou/(totalFrame-1));
 
