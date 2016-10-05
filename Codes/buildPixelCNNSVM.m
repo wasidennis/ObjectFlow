@@ -52,11 +52,13 @@ end
 
 % random sample features
 rnd = randperm(size(feats_fg,2));
-num = min(round(size(onlineModel.feats_fg_init,2)),size(feats_fg,2));
+% num = min(round(size(onlineModel.feats_fg_init,2)),size(feats_fg,2));
+num = size(feats_fg,2);
 feats_fg = feats_fg(:,rnd(1:num));
 
 rnd = randperm(size(feats_bg,2));
-num = min(round(size(onlineModel.feats_bg_init,2)),size(feats_bg,2));
+% num = min(round(size(onlineModel.feats_bg_init,2)),size(feats_bg,2));
+num = size(feats_bg,2);
 feats_bg = feats_bg(:,rnd(1:num));
 
 % learn SVM model
