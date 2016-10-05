@@ -41,3 +41,4 @@ IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016.
 
 * 06/2016: code released
 * 09/2016: evaluation method updated
+* 10/2016: code updated for supervoxel extraction and online CNN model
