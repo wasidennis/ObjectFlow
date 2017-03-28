@@ -33,6 +33,8 @@ IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016.
 
 * For initialization, currently we use the ground truth of the first frame and propagate to following frames. If you prefer to use other initializations, please replace the ground truth data.
 
+* The model and code are available for non-commercial research purposes only.
+
 ## Hint
 
 * The current implementation for generating optical flow is slow, so you can replace it with other optical flow methods to speed up the process.
