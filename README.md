@@ -1,6 +1,6 @@
 # ObjectFlow
 Project webpage: https://sites.google.com/site/yihsuantsai/research/cvpr16-segmentation <br />
-Contact: Yi-Hsuan Tsai (ytsai2 at ucmerced dot edu)
+Contact: Yi-Hsuan Tsai (wasidennis at gmail dot com)
 
 ## Paper
 Video Segmentation via Object Flow <br />
