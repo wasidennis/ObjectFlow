@@ -29,7 +29,7 @@ IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016.
 * Run `demo_objectFlow.m` and change settings if needed based on your video data (see the script for further details).
 
 ## Note
-* Currently this package only contains the implementation of object segment tracking without re-estimating optical flow and the performacne is a bit worse than the one reported in the paper.
+* Currently this package only contains the implementation of object segment tracking without re-estimating optical flow and the performance is a bit worse than the one reported in the paper.
 
 * For initialization, currently we use the ground truth of the first frame and propagate to following frames. If you prefer to use other initializations, please replace the ground truth data.
 
